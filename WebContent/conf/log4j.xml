@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE root [
+  <!ENTITY logpath "${catalina.home}/applications_logs/hnb">
+ ]>
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="ErrorAPPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="&logpath;/Error.log"/>
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd,HH:mm:ss},%m%n" />
+		</layout>
+	</appender>
+
+	<appender name="EventAPPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="&logpath;/Event.log"/>
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd,HH:mm:ss},%m%n" />
+		</layout>
+	</appender>
+
+	<appender name="SMSlogAPPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="&logpath;/SMSlog.log"/>
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd,HH:mm:ss},%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="ConnectionlogAPPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="&logpath;/Connectionlog.log"/>
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd,HH:mm:ss},%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="EmaillogAPPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="&logpath;/Emaillog.log"/>
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd,HH:mm:ss},%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="FilelogAPPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="&logpath;/Filelog.log"/>
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd,HH:mm:ss},%m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n" />
+		</layout>
+	</appender>
+
+	<logger name="Error" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="ErrorAPPENDER" />
+	</logger>
+
+	<logger name="Event" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="EventAPPENDER" />
+	</logger>
+
+	<logger name="Connectionlog" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="ConnectionlogAPPENDER" />
+	</logger>
+	
+	<logger name="SMSlog" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="SMSlogAPPENDER" />
+	</logger>
+	
+	<logger name="Emaillog" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="EmaillogAPPENDER" />
+	</logger>
+	
+	<logger name="Filelog" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="FilelogAPPENDER" />
+	</logger>
+	
+	<root>
+		<priority value="debug" />
+		<appender-ref ref="ConsoleAppender" />
+	</root>
+</log4j:configuration>
